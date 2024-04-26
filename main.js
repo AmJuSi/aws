@@ -51,8 +51,9 @@ async function showStations(url) {
                     popupAnchor: [0, -37],
                 })
             })
-        }
-    })
+        },
+
+    }).addTo(themaLayer.stations);
 
 }
 showStations("https://static.avalanche.report/weather_stations/stations.geojson");
