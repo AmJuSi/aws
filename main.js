@@ -40,8 +40,7 @@ async function showStations(url) {
     let geojson = await response.json();
 
     // Wetterstationen mit Icons und Popups
-    console.log(geojson)
-
+    //console.log(geojson)
     L.geoJSON(geojson, {
         pointToLayer: function (feature, ibk) {
             return L.marker(ibk, {
@@ -52,7 +51,19 @@ async function showStations(url) {
                 })
             })
         },
-
+        onEachFeature: function (feature, layer) {
+            console.log(feature);
+            layer.bindPopup(`
+             <h4> ${feature.properties.name} (${feature.geometry.coordinates[2]}m)</h4>
+             <ul>
+                <li> Lufttemperautr (°C): ${feature.properties.LT || "-"}</li>
+                <li> Relative Luftfeuchtigkeit (%): ${feature.properties.RH || "-"}</li>
+                <li> Windgeschwindigkeit (km/h): ${feature.properties.WG || "-"}</li>
+                <li> Schneehöhe (cm): ${feature.properties.HS || "-"} </li>
+             </ul>
+             <p> ${feature.properties.date}</p>
+            `);
+        }
     }).addTo(themaLayer.stations);
 
 }
