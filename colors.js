@@ -29,5 +29,10 @@ const COLORS = {
         { min: 1, max: 10, color: "" },
         { min: 10, max: 25, color: "" },
         { min: 25, max: 50, color: "" },
+        { min: 50, max: 100, color: "" },
+        { min: 100, max: 200, color: "" },
+        { min: 200, max: 300, color: "" },
+        { min: 300, max: 400, color: "" },
+        { min: 400, max: 700, color: "" },
     ],
 };
