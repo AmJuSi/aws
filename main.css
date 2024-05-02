@@ -56,4 +56,9 @@ footer nav {
     font-size: 1.2em;
     font-weight: bold;
     padding: 0.3em;
+    text-shadow:
+        -1px -1px 0 white,
+        -1px 1px 0 white,
+        1px -1px 0 white,
+        1px 1px 0 white,
 }
