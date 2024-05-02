@@ -47,7 +47,6 @@ function getColor(value, ramp) {
     }
 }
 
-let color = getColor(17, COLORS.temperature);
 
 //funktion temperatur definieren
 function showTemperature(geojson) {
@@ -59,10 +58,11 @@ function showTemperature(geojson) {
             }
         },
         pointToLayer: function (feature, latlng) {
+            let color = getColor(feature.properties.LT, COLORS.temperature);
             return L.marker(latlng, {
                 icon: L.divIcon({
                     className: "aws-div-icon",
-                    html: `<span>${feature.properties.LT.toFixed(1)}</span>`
+                    html: `<span style="background-color:${color};">${feature.properties.LT.toFixed(1)}</span>`
                 })
             })
         }
