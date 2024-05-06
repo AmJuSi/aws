@@ -15,7 +15,8 @@ let map = L.map("map", {
 let themaLayer = {
     stations: L.featureGroup(),
     temperature: L.featureGroup(),
-    wind: L.featureGroup().addTo(map),
+    wind: L.featureGroup(),
+    schnee: L.featureGroup().addTo(map),
 }
 
 // Hintergrundlayer
@@ -31,6 +32,7 @@ L.control.layers({
     "Wetterstationen": themaLayer.stations,
     "Temperatur °C": themaLayer.temperature,
     "Wind km/h": themaLayer.wind,
+    "Schneehöhe cm": themaLayer.schnee,
 }).addTo(map);
 
 // Maßstab
